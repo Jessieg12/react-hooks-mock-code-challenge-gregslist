@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import ListingsContainer from "./ListingsContainer";
 
 function App() {
+  const [searchBar, setSearchBar] = useState('')
+
+  function handleSearch(newSearch){
+    setSearchBar(newSearch)
+  }
   return (
     <div className="app">
-      <Header />
-      <ListingsContainer />
+      <Header onSearch={handleSearch} />
+      <ListingsContainer searchBar={searchBar}/>
     </div>
   );
 }
